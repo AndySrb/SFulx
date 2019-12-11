@@ -2,13 +2,12 @@
 
 
 Game::Game(): m_window("SFulx", sf::Vector2u(800,600)),
-m_AssetMenager(new AssetMenager())
+m_AssetMenager(new AssetMenager()), m_FontMenager(new FontMenager())
 {
 // Setting up class members.
 	std::cout << "Game::Game()" << std::endl;
 	m_window.setFrameRate(60);
-
-
+	//m_FontMenager->addFont(<font.ttf>); //Put here font, look FontMenager.h for more info
 }
 
 Game::~Game() {}

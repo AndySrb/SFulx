@@ -5,6 +5,7 @@
 #include "Window.h"
 #include "../Renderer/AssetMenager.h"
 #include "../Renderer/Animator.h"
+#include "../Renderer/FontMenager.cpp"
 #include "../Input/InputHandler.h"
 
 
@@ -28,7 +29,8 @@ class Game
 
 		Window m_window;
 		AssetMenager *m_AssetMenager;
-		InputHandler m_InputHandler;
+		FontMenager *m_FontMenager;
+		InputHandler m_InputHandler; //InputHandler is already initilized in Window.cpp
 		sf::Time delta;
 		sf::Font font;
 

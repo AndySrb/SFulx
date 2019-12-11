@@ -4,8 +4,13 @@
 #include <iostream>
 #include <vector>
 
-#warning Add documetation
 #warning Do test
+
+/*
+ * This class is intended to hold font data and call it later add it in
+ * sf::text
+*/
+
 
 class FontMenager
 {
@@ -19,7 +24,6 @@ class FontMenager
 
 	public:
 		FontMenager();
-		FontMenager(sf::Font);
 		sf::Font getFont(const int &number);
 		void addFont(const std::string &filename);
 		

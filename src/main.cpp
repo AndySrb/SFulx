@@ -5,7 +5,6 @@ int main()
 {
 	Game game;
 	std::cout << "Window size: X:" <<  game.GetWindow()->GetWindowSize().x  << " Y:" << game.GetWindow()->GetWindowSize().y << std::endl;
-	sf::Event event;
 
 while(!game.GetWindow()->IsDone()){
 // Game loop.
