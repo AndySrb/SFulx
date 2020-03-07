@@ -13,14 +13,40 @@ class AudioManager
 {
 
 
+	public:
+		AudioManager();
+
+		enum Type {MUSIC, SOUND, NONE};
+
+		void addAudio(std::string filename,enum Type obj);
+		void checkIsPlaying();
+
+
+
+		void play(const std::string &filename);
+		void pause(const std::string &filename);
+
+		void pauseAllMusic();
+		void pauseAllSounds();
+
+
 	private:
 		AudioManager(const AudioManager &obj);
 		AudioManager(AudioManager &&obj);
 
-		enum Type {MUSIC, SOUND};
+		void addSound(const std::string &filename);
+		void addMusic(const std::string &filename);
 
 		struct CustomSound
 		{
+
+			CustomSound()
+			{
+				m_sound = nullptr;
+				m_type = NONE;
+				m_id = 0;
+			}
+
 			CustomSound(sf::SoundBuffer *_sound, Type _type, int _id)
 			{
 				m_sound = _sound;
@@ -47,26 +73,8 @@ class AudioManager
 
 		int m_audioID = 0;
 		
-
 		int m_countSoundID = 0;
 		int m_countMusicID = 0;
-
-
-	public:
-		AudioManager();
-
-		void addAudio(std::string filename,enum Type obj);
-		void checkIsPlaying();
-
-
-		void addSound(const std::string &filename);
-		void addMusic(const std::string &filename);
-
-		void play(const std::string &filename);
-		void pause(const std::string &filename);
-
-		void pauseAllMusic();
-		void pauseAllSounds();
 
 };
 
