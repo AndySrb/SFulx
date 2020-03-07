@@ -5,7 +5,7 @@
 #include <algorithm>
 #include <list>
 
-#include "AssetMenager.h"
+#include "AssetManager.h"
 
 
 class Animator
