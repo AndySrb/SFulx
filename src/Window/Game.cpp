@@ -17,7 +17,7 @@ void Game::Update()
 m_window.Update(); // Update window events.
 HandleInput();
 // someObject->Update(delta);
-updateScore();
+//updateScore();
 delta = m_window.GetDeltaTime();
 }
 

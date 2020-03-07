@@ -26,6 +26,8 @@ class AudioManager
 		void play(const std::string &filename);
 		void pause(const std::string &filename);
 
+		void setLoop(const std::string &filename, bool loop);
+
 		void pauseAllMusic();
 		void pauseAllSounds();
 

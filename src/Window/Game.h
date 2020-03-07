@@ -3,9 +3,9 @@
 #include <iostream>
 #include <SFML/System.hpp>
 #include "Window.h"
-#include "../Renderer/AssetMenager.h"
+#include "../Renderer/AssetManager.h"
 #include "../Renderer/Animator.h"
-#include "../Renderer/FontMenager.cpp"
+#include "../Renderer/FontManager.h"
 #include "../Input/InputHandler.h"
 
 

@@ -1,5 +1,8 @@
 #include "AudioManager.h"
 
+AudioManager* AudioManager::s_audioManager;
+
+
 AudioManager::AudioManager()
 {
 	if (s_audioManager == nullptr)
@@ -34,14 +37,13 @@ void AudioManager::addAudio(std::string filename, enum Type type)
 
 void AudioManager::addSound(const std::string &filename)
 {
-	sf::SoundBuffer *obj = new sf::SoundBuffer;
 
 	sf::SoundBuffer *soundBuffer = new sf::SoundBuffer();
 	soundBuffer->loadFromFile(filename);
-	m_audioClass[filename] = CustomSound(obj, Type::SOUND, m_countSoundID);
+	m_audioClass[filename] = CustomSound(soundBuffer, Type::SOUND, m_countSoundID);
 
 	sf::Sound *ptr = new sf::Sound();
-	obj->loadFromSamples(soundBuffer->getSamples() ,soundBuffer->getSampleCount(), soundBuffer->getChannelCount(), soundBuffer->getSampleRate());
+	ptr->setBuffer(*soundBuffer);
 
 	m_sound.push_back(ptr);
 }
@@ -52,7 +54,14 @@ void AudioManager::addMusic(const std::string &filename)
 	sf::Music *music= new sf::Music();
 	music->openFromFile(filename);
 
-	m_audioClass[filename] = CustomSound(nullptr , Type::SOUND, m_countMusicID);
+	m_audioClass[filename] = CustomSound(nullptr , Type::MUSIC, m_countMusicID);
+
+	sf::Music *obj;
+	obj = new sf::Music;
+	obj->openFromFile(filename);
+	
+	m_music.push_back(obj);
+
 
 }
 
@@ -124,6 +133,21 @@ void AudioManager::pauseAllSounds()
 		{
 			this->pause(iter->first);
 		}
+	}
+}
+
+void AudioManager::setLoop( const std::string &filename, bool loop )
+{
+
+	if(m_audioClass[filename].m_type == Type::SOUND)
+	{
+		m_sound[(m_audioClass[filename].m_id)]->setLoop(loop);
+		m_audioClass[filename].m_bLoop = loop;
+	}
+	else
+	{
+		m_music[(m_audioClass[filename].m_id)]->setLoop(loop);
+		m_audioClass[filename].m_bLoop = loop;
 	}
 }
 
