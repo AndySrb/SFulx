@@ -33,6 +33,9 @@ void Window::Update(){
 		if (event.KeyPressed && event.key.code == sf::Keyboard::F5)
 			ToggleFullscreen();
 
+		if (event.KeyPressed && event.key.code == sf::Keyboard::F6)
+			ToggleFullscreen();
+
 		switch (event.type)
 		{
 		case event.Closed:

@@ -1,6 +1,7 @@
 #ifndef WINDOW_H
 #define WINDOW_H 
 
+#include <SFML/System/Vector2.hpp>
 #include <iostream>
 #include <SFML/Graphics.hpp>
 #include "../Input/InputHandler.h"
@@ -19,6 +20,13 @@ public:
 	sf::Vector2u GetWindowSize();
 	void ToggleFullscreen();
 	void Draw(sf::Drawable& l_drawable);
+
+	void RefreshWindow()
+	{
+		this->Destroy();
+		m_window.setSize(m_windowSize);
+		this->Create();
+	}
 
 	void initializeShutdown()
 	{
