@@ -18,7 +18,7 @@ class AudioManager
 
 		enum Type {MUSIC, SOUND, NONE};
 
-		void addAudio(std::string filename,enum Type obj);
+		void addAudio(std::string &filename,enum Type &obj);
 		void checkIsPlaying();
 
 

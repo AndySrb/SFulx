@@ -1,6 +1,12 @@
 ## Needs windows compilation options
 cmake_minimum_required (VERSION 2.6)
-set(PROJECTNAME "GameEngine")
+if (UNIX)
+	set(PROJECTNAME "ResourceLoader")
+endif(UNIX)
+
+if (WIN32)
+	set(PROJECTNAME "ResourceLoader.exe")
+endif (WIN32)
 project(${PROJECTNAME})
 set(SFMLDIR "SFML")
 
@@ -24,12 +30,12 @@ include_directories (${SFML_LIBRARIES})
 
 
 
+include_directories(../../src/)
+link_directories(../../src)
+
 aux_source_directory(src/ Sources)
-aux_source_directory(src/Input Sources)
-aux_source_directory(src/Renderer Sources)
-aux_source_directory(src/Window Sources)
-aux_source_directory(src/AssetManager Sources)
-aux_source_directory(src/AssetManager/Lua Sources)
+aux_source_directory(../../src/AssetManager Sources)
+aux_source_directory(../../src/AssetManager/Lua Sources)
 
 
 

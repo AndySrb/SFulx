@@ -11,7 +11,7 @@ AudioManager::AudioManager()
 }
 
 
-void AudioManager::addAudio(std::string filename, enum Type type)
+void AudioManager::addAudio(std::string &filename, enum Type &type)
 {
 
 	switch (type)
