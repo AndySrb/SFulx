@@ -10,7 +10,13 @@ while(!game.GetWindow()->IsDone()){
 // Game loop.
 	game.Update();
 	game.Render();
+
+
+
+
 }
+
+	int *ptr = new int[10];
 
 return 0;
 }

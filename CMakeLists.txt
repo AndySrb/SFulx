@@ -30,6 +30,7 @@ aux_source_directory(src/Renderer Sources)
 aux_source_directory(src/Window Sources)
 aux_source_directory(src/AssetManager Sources)
 aux_source_directory(src/AssetManager/Lua Sources)
+aux_source_directory(src/Logic Sources)
 
 
 

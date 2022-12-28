@@ -81,4 +81,28 @@ void ResourceLoader::PrintResourceList(const char *filename)
 	}
 }
 
+ResourceData ResourceLoader::getResourceData(const char* filename)
+{
+
+	ResourceData data;
+
+	if (CheckLua(L,luaL_dofile(L,filename)))
+	{
+		luaLoad->readFromTable("Asset","Name");
+		data.name = std::string(*luaLoad);
+		luaLoad->readFromTable("Asset","Desc");
+		data.desc = std::string(*luaLoad);
+		luaLoad->readFromTable("Asset", "Type");
+		data.type = *luaLoad;
+		luaLoad->readFromTable("Asset","SpriteFile");
+		data.sprite_filename = std::string(*luaLoad);
+		luaLoad->readFromTable("Asset","SettingsFile");
+		data.settings_filename = std::string(*luaLoad);
+		luaLoad->readFromTable("Asset","FunctionFile");
+		data.function_filename = std::string(*luaLoad);
+	}
+
+	return data;
+}
+
 

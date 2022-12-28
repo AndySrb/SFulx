@@ -4,9 +4,13 @@
 #include <SFML/System.hpp>
 #include "Window.h"
 #include "../AssetManager/AssetManager.h"
-#include "../Renderer/Animator.h"
+//#include "../Renderer/Animator.h"
 #include "../Renderer/FontManager.h"
 #include "../Input/InputHandler.h"
+#include "../AssetManager/ResourceManager.h"
+
+#include "../Logic/Player.h"
+#include "../Logic/Object.h"
 
 
 
@@ -31,10 +35,16 @@ class Game
 		AssetMenager *m_AssetMenager;
 		FontMenager *m_FontMenager;
 		InputHandler m_InputHandler; //InputHandler is already initilized in Window.cpp
+		ResourceManager *m_ResourceManager;
+
 		sf::Time delta;
 		sf::Font font;
 
-		sf::CircleShape circleShape;
+		Player m_PlayerClass; // src/Logic/Player
+		Object m_object; //src/Logic/Object
+
+  void foo();
+
 
 
 };

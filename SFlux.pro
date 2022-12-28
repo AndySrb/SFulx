@@ -1,4 +1,4 @@
-## needs windows compile options added
+## needs windows compile options added # OUTDATED
 TEMPLATE = app
 CONFIG += c++11
 CONFIG -= app_bundle

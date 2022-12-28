@@ -4,7 +4,6 @@
 #include <SFML/Graphics.hpp>
 #include <algorithm>
 #include <list>
-
 #include "../AssetManager/AssetManager.h"
 
 
